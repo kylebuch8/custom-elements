@@ -1,0 +1,29 @@
+<script>
+  class CpBaseElement extends HTMLElement {
+    constructor(element) {
+      super();
+
+      this._selector = element;
+
+      if (window.ShadyCSS) {
+        const htmlTemplateElement = document.getElementById(element);
+
+        ShadyCSS.prepareTemplate(htmlTemplateElement, this._selector);
+        ShadyCSS.styleElement(this);
+
+        if (!this.shadowRoot) {
+          this.attachShadow({ mode: 'open' });
+          this.shadowRoot.appendChild(document.importNode(htmlTemplateElement.content, true));
+        }
+
+        return;
+      }
+
+      let shadowRoot = this.attachShadow({ mode: 'open' });
+      const template = document.currentScript.ownerDocument.querySelector(`#${this._selector}`);
+      const instance = template.content.cloneNode(true);
+
+      shadowRoot.appendChild(instance);
+    }
+  }
+</script>

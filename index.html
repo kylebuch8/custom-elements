@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Custom Elements</title>
+    <!-- <script src="bower_components/webcomponentsjs/custom-elements-es5-adapter.js"></script> -->
+    <script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+    <link rel="import" href="src/cp-button/cp-button.html">
+    <link rel="import" href="src/cp-card/cp-card.html">
+    <link rel="import" href="src/cp-alert/cp-alert.html">
+
+    <style>
+      body {
+        height: 100%;
+      }
+
+      .flex {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+      }
+
+      cp-card {
+        width: 300px;
+        margin: 16px 0;
+      }
+
+      cp-alert {
+        margin-bottom: 16px;
+      }
+
+      @media (min-width: 600px) {
+        .flex {
+          flex-direction: row;
+        }
+
+        cp-card {
+          margin: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Buttons</h1>
+    <cp-button>Default Button</cp-button>
+    <cp-button class="primary">Primary Button</cp-button>
+    <cp-button class="accent">Accent Button</cp-button>
+    <cp-button class="black">Black Button</cp-button>
+    <cp-button class="link">Link Button</cp-button>
+
+    <h1>Cards</h1>
+    <div class="flex">
+      <cp-card heading="Card Heading">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </cp-card>
+      <cp-card class="light" heading="Light Grey Card">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </cp-card>
+      <cp-card class="accent" heading="Accent Card">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </cp-card>
+      <cp-card class="bordered" heading="Bordered Card">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </cp-card>
+    </div>
+
+    <h1>Alerts</h1>
+    <cp-alert class="success" title="Success!">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</cp-alert>
+    <cp-alert class="info" title="Info!">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</cp-alert>
+    <cp-alert class="warning" title="Warning!">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</cp-alert>
+    <cp-alert class="danger" title="Danger!">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</cp-alert>
+
+    <script>
+      document.body.style.opacity = 0;
+      window.addEventListener('WebComponentsReady', function() {
+        document.body.style.opacity = 1;
+      });
+    </script>
+  </body>
+</html>

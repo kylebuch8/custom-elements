@@ -1,0 +1,80 @@
+<link rel="import" href="../cp-base-element/cp-base-element.html">
+
+<template id="cp-button">
+  <style>
+    :host button {
+      display: inline-block;
+      border: 1px solid #4c4c4c;
+      background-image: none;
+      background-color: #4c4c4c;
+      padding: 8px 32px;
+      text-transform: uppercase;
+      color: #fff;
+      cursor: pointer;
+      transition-property: background-color, color;
+      transition-duration: 0.4s;
+      font-weight: bold;
+    }
+
+    :host button:hover {
+      background-color: #3f3f3f;
+      border-color: #3f3f3f;
+    }
+
+    :host(.primary) button {
+      background-color: #c00;
+      border-color: #c00;
+    }
+
+    :host(.primary) button:hover {
+      background-color: #b30000;
+      border-color: #b30000;
+    }
+
+    :host(.accent) button {
+      background-color: #08c0fc;
+      border-color: #08c0fc;
+    }
+
+    :host(.accent) button:hover {
+      background-color: #03afe8;
+      border-color: #03afe8;
+    }
+
+    :host(.black) button {
+      background-color: #1a1a1a;
+      border-color: #1a1a1a;
+    }
+
+    :host(.black) button:hover {
+      background-color: #272727;
+      border-color: #272727;
+    }
+
+    :host(.link) button {
+      background-color: transparent;
+      border-color: transparent;
+      color: #06c;
+    }
+
+    :host(.link) button:hover {
+      background-color: transparent;
+      border-color: transparent;
+      color: #0051a3;
+    }
+  </style>
+
+  <button>
+    <slot></slot>
+  </button>
+</template>
+
+<script>
+  class CpButton extends CpBaseElement {
+    constructor() {
+      super('cp-button');
+    }
+  }
+
+  customElements.define('cp-button', CpButton);
+</script>

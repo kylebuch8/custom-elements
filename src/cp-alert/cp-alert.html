@@ -1,0 +1,67 @@
+<link rel="import" href="../cp-base-element/cp-base-element.html">
+
+<template id="cp-alert">
+  <style>
+    :host {
+      display: block;
+      padding: 16px;
+    }
+
+    :host(.success) {
+      background: #dff0d8;
+      color: #3c763d;
+    }
+
+    :host(.info) {
+      background: #d9edf7;
+      color: #31708f;
+    }
+
+    :host(.warning) {
+      background: #fcf8e3;
+      color: #8a6d3b;
+    }
+
+    :host(.danger) {
+      background: #f2dede;
+      color: #a94442;
+    }
+
+    .show {
+      display: inline-block;
+    }
+
+    strong.show {
+      margin-right: 4px;
+    }
+  </style>
+
+  <strong></strong><slot></slot>
+</template>
+
+<script>
+  class CpAlert extends CpBaseElement {
+    constructor() {
+      super('cp-alert');
+
+      this.titleSelector = this.shadowRoot.querySelector('strong');
+    }
+
+    static get observedAttributes() {
+      return ['title'];
+    }
+
+    attributeChangedCallback(attr, oldValue, newValue) {
+      if (attr === 'title') {
+        if (newValue) {
+          this.titleSelector.textContent = newValue;
+          this.titleSelector.classList.add('show');
+        } else {
+          this.titleSelector.classList.remove('show');
+        }
+      }
+    }
+  }
+
+  customElements.define('cp-alert', CpAlert);
+</script>
